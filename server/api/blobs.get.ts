@@ -1,6 +1,8 @@
 import { list } from '@vercel/blob'
+import { requireAuth } from '../utils/auth'
 
-export default defineEventHandler(async () => {
+export default defineEventHandler(async (event) => {
+  requireAuth(event)
   const config = useRuntimeConfig()
 
   if (!config.blobToken) {

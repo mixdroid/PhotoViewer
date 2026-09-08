@@ -1,4 +1,6 @@
 <script setup lang="ts">
+definePageMeta({ middleware: "auth" });
+
 type Photo = { url: string; pathname: string };
 type Album = { slug: string; title: string; photos: Photo[] };
 
@@ -26,6 +28,7 @@ const totalPhotos = computed(() =>
         <span>{{
           data?.configured ? "Connected" : "Demo collection"
         }}</span>
+        <button class="logout-button" @click="$fetch('/api/logout', { method: 'POST' }).then(() => navigateTo('/login'))">SIGN OUT</button>
       </div>
     </header>
 

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+definePageMeta({ middleware: "auth" });
+
 type Photo = { url: string; pathname: string };
 type Album = { slug: string; title: string; photos: Photo[] };
 const route = useRoute();
@@ -28,6 +30,7 @@ onUnmounted(() => window.removeEventListener("keydown", closeOnEscape));
       <NuxtLink to="/" class="brand"
         ><span class="brand-mark">✦</span> NIGHTFRAME</NuxtLink
       ><NuxtLink to="/" class="back-link">← ALL ALBUMS</NuxtLink>
+      <button class="logout-button" @click="$fetch('/api/logout', { method: 'POST' }).then(() => navigateTo('/login'))">SIGN OUT</button>
     </header>
     <section class="album-hero">
       <div>
