@@ -1,0 +1,15 @@
+{
+  "name": "nightframe-gallery",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.3.0",
+    "nuxt": "^3.17.5",
+    "vue": "^3.5.13"
+  }
+}
